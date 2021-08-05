@@ -15,8 +15,8 @@
                     <?php the_post_thumbnail(array(350,200), array('class' => 'card-img-top', 'title' => 'Feature image')); ?>
                     <div class="card-body">
                         <h5 class="text-center card-title"><?php the_title(); ?></h5>
-                        <p class="text-center card-text"><?php the_excerpt(); ?></p>
-                        <a href="<?php the_permalink(); ?>" class="btn btn-primary">Detalhes</a>
+                        <p class="text-center card-text"><?php echo ll_get_excerpt(30); ?></p>
+                        <p class="text-center"><a href="<?php the_permalink(); ?>" class="btn btn-primary">Detalhes</a></p>
                     </div>
                 </div>
             </div>

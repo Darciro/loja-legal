@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark mb-5">
-    <a href="https://localhost/loja-legal/" class="navbar-brand text-center">Loja Legal</a>
+    <a href="<?php echo home_url(); ?>" class="navbar-brand text-center">Loja Legal</a>
     <img class="navbar-brand" src="https://picsum.photos/40/40" alt="">
     <button type="button" class="btn btn-primary me-md-2">Login</button>
 </nav>

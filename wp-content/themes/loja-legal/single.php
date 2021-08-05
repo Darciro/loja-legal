@@ -12,9 +12,9 @@
             while ( have_posts() ) : the_post(); ?>
             <div class="col-12 px-5">
                 <div class="card">
-                    <?php the_post_thumbnail(array(350,200), array('class' => 'card-img-top', 'title' => 'Feature image')); ?>
+                    <?php the_post_thumbnail('large', array('class' => 'card-img-top', 'title' => 'Feature image')); ?>
                     <div class="card-body">
-                        <p class="text-center card-text"><?php the_excerpt(); ?></p>
+                        <p class="text-center card-text"><?php the_content(); ?></p>
                     </div>
                 </div>
             </div>
