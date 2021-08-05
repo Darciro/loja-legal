@@ -27,6 +27,12 @@ function wporg_add_custom_box() {
         'car_value_metabox_html',    // Content callback, must be of type callable
         array('post')                       // Post type
     );
+    add_meta_box(
+        'km_value_metabox',         
+        'Km percorrido',           
+        'km_value_metabox_html',   
+        array('post')                      
+    );
 }
 add_action( 'add_meta_boxes', 'wporg_add_custom_box' );
 
@@ -40,6 +46,15 @@ function car_value_metabox_html ($post) {
 
     <?php
 }
+function km_value_metabox_html ($post) {
+    $km_value = get_post_meta( $post->ID, 'km_value', true );
+    ?>
+
+    <label for="km_value">Digite a kilometragem:</label>
+    <input type="text" name="km_value" id="km_value" value="<?php echo $km_value; ?>">
+
+    <?php
+}
 
 // Função responsável por salvar o valor do carro
 function car_value_save( $post_id ) {
@@ -48,3 +63,10 @@ function car_value_save( $post_id ) {
     }
 }
 add_action( 'save_post', 'car_value_save' );
+
+function km_value_save( $post_id ) {
+    if ( array_key_exists( 'km_value', $_POST ) ) {
+        update_post_meta($post_id, 'km_value', $_POST['km_value']);
+    }
+}
+add_action( 'save_post', 'km_value_save' );
