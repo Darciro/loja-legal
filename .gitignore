@@ -1,1 +1,4 @@
 wp-config.php
+.idea
+wp-content/uploads/
+htdocs
