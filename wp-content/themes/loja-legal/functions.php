@@ -1,6 +1,22 @@
 <?php
+
+function ll_scripts(){
+    wp_enqueue_style('bootstrap-style', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css' , array(), '1.0');
+    wp_enqueue_style('ll-style', get_template_directory_uri() . '/style.css' , array('bootstrap-style'), '1.0');
+
+    wp_enqueue_script('bootstrap-scripts', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('ll-scripts', get_template_directory_uri() . '/main.js', array('jquery', 'bootstrap-scripts'), '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'll_scripts');
+
 // Adiciona suporte à miniaturas de artigos
 add_theme_support('post-thumbnails');
+
+register_nav_menus(
+    array(
+        'main-menu' => 'Menu principal',
+    )
+);
 
 // Função que retorna o resumo de um artigo
 function ll_get_excerpt($limit = 190)
@@ -57,16 +73,13 @@ function km_value_metabox_html ($post) {
 }
 
 // Função responsável por salvar o valor do carro
-function car_value_save( $post_id ) {
+function car_metadata_save( $post_id ) {
     if ( array_key_exists( 'car_value', $_POST ) ) {
         update_post_meta($post_id, 'car_value', $_POST['car_value']);
     }
-}
-add_action( 'save_post', 'car_value_save' );
 
-function km_value_save( $post_id ) {
     if ( array_key_exists( 'km_value', $_POST ) ) {
         update_post_meta($post_id, 'km_value', $_POST['km_value']);
     }
 }
-add_action( 'save_post', 'km_value_save' );
+add_action( 'save_post', 'car_metadata_save' );
