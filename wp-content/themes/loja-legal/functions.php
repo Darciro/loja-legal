@@ -12,11 +12,16 @@ add_action('wp_enqueue_scripts', 'll_scripts');
 // Adiciona suporte à miniaturas de artigos
 add_theme_support('post-thumbnails');
 
-register_nav_menus(
-    array(
-        'main-menu' => 'Menu principal',
-    )
-);
+// register_nav_menus(
+//     array(
+//         'main-menu' => 'Menu principal',
+//     )
+// );
+
+function wpb_custom_new_menu() {
+    register_nav_menu('main-menu',__( 'Menu principal' ));
+  }
+  add_action( 'init', 'wpb_custom_new_menu' );
 
 // Função que retorna o resumo de um artigo
 function ll_get_excerpt($limit = 190)

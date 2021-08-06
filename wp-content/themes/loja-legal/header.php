@@ -19,14 +19,12 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Sobre a Loja legal</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contato</a>
-            </li>
-        </ul>
+        <?php
+                wp_nav_menu( array( 
+                    'menu' => 'navbarSupportedContent',
+                    'theme_location' => 'main-menu', 
+                    'items_wrap'  => '<ul id="%1$s" class="%2$s navbar-nav mr-auto">%3$s</ul>' ) ); 
+        ?>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
