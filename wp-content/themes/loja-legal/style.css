@@ -20,3 +20,8 @@ Use it to make something cool, have fun, and share what you’ve learned with ot
     color: #fff;
 }
 
+.auth_link{
+    display: block;
+    padding: .5rem 1rem;
+    color: #fff;
+}

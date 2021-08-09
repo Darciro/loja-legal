@@ -10,11 +10,12 @@ get_header(); ?>
     </div>
     <div class="row mb-5">
         
-        <?php if ( have_posts() ) :
-            while ( have_posts() ) : the_post(); ?>
+        <?php  $query = new WP_Query( array( 'author' =>get_current_user_id() ) );
+        if ( $query->have_posts() ) :
+            while ( $query->have_posts() ) : $query->the_post(); ?>
             <div class="col-12 px-5">
-                <?php the_post_thumbnail('large', array('class' => 'card-img-top', 'title' => 'Feature image')); ?>
-                <p class="text-center card-text"><?php the_content(); ?></p>
+                <?php $query->the_post_thumbnail('large', array('class' => 'card-img-top', 'title' => 'Feature image')); ?>
+                <p class="text-center card-text"><?php $query->the_content(); ?></p>
             </div>
             <?php endwhile; ?>
 

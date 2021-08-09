@@ -21,16 +21,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <?php
             if( is_user_logged_in() ){
-                $auth_link = '<li class="menu-item"><a href="'. wp_logout_url( home_url() ) .'">Log out</a></li>';
+                $auth_link = '<a class="auth_link" href="'. wp_logout_url( home_url() ) .'">Log out</a>';
             } else {
-                $auth_link = '<li class="menu-item"><a href="'. wp_login_url( home_url() ) .'">Login</a></li>';
+                $auth_link = '<a class="auth_link" href="'. wp_login_url( home_url() ) .'">Login</a>';
             }
             wp_nav_menu( array(
                 'menu' => 'navbarSupportedContent',
                 'theme_location' => 'main-menu',
                 'container' => '',
-                'items_wrap'  => '<ul id="%1$s" class="%2$s navbar-nav mr-auto">%3$s '. $auth_link .'</ul>' )
+                'items_wrap'  => '<ul id="%1$s" class="%2$s navbar-nav mr-auto">%3$s</ul>' )
             );
+            echo $auth_link;
         ?>
         <?php get_search_form(); ?>
     </div>
