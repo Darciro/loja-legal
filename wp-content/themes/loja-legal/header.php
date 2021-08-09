@@ -20,14 +20,13 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <?php
-                wp_nav_menu( array( 
-                    'menu' => 'navbarSupportedContent',
-                    'theme_location' => 'main-menu', 
-                    'items_wrap'  => '<ul id="%1$s" class="%2$s navbar-nav mr-auto">%3$s</ul>' ) ); 
+            wp_nav_menu( array(
+                'menu' => 'navbarSupportedContent',
+                'theme_location' => 'main-menu',
+                'container' => '',
+                'items_wrap'  => '<ul id="%1$s" class="%2$s navbar-nav mr-auto">%3$s</ul>' )
+            );
         ?>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
+        <?php get_search_form(); ?>
     </div>
 </nav>

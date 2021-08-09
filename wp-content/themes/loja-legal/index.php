@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="container">
+<main class="container">
     <div class="row mb-5">
         <div class="col">
             <h3 class="text-center">Automoveis</h3>
@@ -29,5 +29,5 @@
         <?php endif; ?>
     </div>
 
-</div>
+</main>
 <?php get_footer(); ?>
