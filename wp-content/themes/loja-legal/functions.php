@@ -11,6 +11,30 @@ function ll_scripts()
 
 add_action('wp_enqueue_scripts', 'll_scripts');
 
+function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/LL.jpg);
+		height:65px;
+		width:242px;
+		background-size: 320px 65px;
+		background-repeat: no-repeat;
+        	padding-bottom: 30px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+function my_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+    return 'Loja Legal';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
 // Adiciona suporte à miniaturas de artigos
 add_theme_support('post-thumbnails');
 
@@ -93,3 +117,4 @@ function car_metadata_save($post_id)
 }
 
 add_action('save_post', 'car_metadata_save');
+
