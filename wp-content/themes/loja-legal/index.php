@@ -3,7 +3,9 @@
     <div class="row mb-5">
         <div class="col">
             <h3 class="text-center">Automoveis</h3>
-            <button type="button" class="btn btn-primary">Venda o seu carro</button>
+            <?php if( is_user_logged_in() ): ?>
+                <a href="<?php echo admin_url('/post-new.php'); ?>" class="btn btn-primary">Venda o seu carro</a>
+            <?php endif; ?>
         </div>
     </div>
     <div class="row mb-5">
